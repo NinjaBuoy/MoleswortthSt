@@ -105,6 +105,8 @@ player.onAppStart(function() {
 player.onStreamStart(function() {
   console.log("SDK client FIRED: Stream start");
 
+  //activate user
+  player.setUserActive();
   //disable loader here
   loader.remove();
 });
