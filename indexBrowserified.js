@@ -3,7 +3,7 @@ const SDK = require("furioos-sdk");
 const Player = SDK.Player;
 
 // CONF
-const player = new Player('221.769', 'furioos_container', {
+const player = new Player('130.390', 'furioos_container', {
   whiteLabel: true,
   hideTitle: true,
   hideToolbar: false,
