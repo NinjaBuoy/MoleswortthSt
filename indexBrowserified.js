@@ -116,6 +116,7 @@ player.onStreamStart(function() {
 // Bind user active
 player.onUserActive(function() {
   console.log("SDK client FIRED: User Active");
+  document.getElementById('furioos_container').click();
 });
 
 // Bind user inactive
