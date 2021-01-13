@@ -48,9 +48,12 @@ const player = new Player('713.790', 'furioos_container', {
 // Mute a singular HTML5 element
 function muteMe(elem) {
   elem.muted = true;
-  elem.pause();
+  //elem.pause();
 }
-document.querySelectorAll("audio").forEach( elem => muteMe(elem) );
+document.querySelectorAll("video, audio").forEach( elem => muteMe(elem) );
+
+// const video = document.getElementById("video-container").item(0).item(0);
+// video.muted = true;
 
 
 const loader = document.getElementById("loader");
