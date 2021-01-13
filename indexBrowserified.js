@@ -53,10 +53,7 @@ function muteMe(elem) {
 }
 
 // Mute a singular HTML5 element
-//const furioos = document.getElementById("furioos_container");
-var iframeDoc = document.getElementById('furioos_container').contentDocument;
-iframeDoc.getElementsByTagName("video").muted = true;
-
+const furioos = document.getElementById("furioos_container");
 const loader = document.getElementById("loader");
 // document.getElementById('button_start').addEventListener("click", () => {
 //   console.log("Call start");
@@ -81,7 +78,8 @@ player.onLoad(() => {
   player.start();
   console.info("Do something on load");
 
-  //player.querySelectorAll("video, audio").forEach( elem => muteMe(elem) );
+  var iframeDoc = (furioos.contentDocument || furioos.contentWindow.document);
+  iframeDoc.getElementsByTagName("video").muted = true;
 });
 
 player.onStats((stats) => {
