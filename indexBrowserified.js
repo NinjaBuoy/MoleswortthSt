@@ -77,16 +77,16 @@ const loader = document.getElementById("loader");
 player.onLoad(() => {
   
   //Mute video
-  var iframeDoc;
-  if(furioos.contentDocument !== undefined)
-  {
-    iframeDoc = furioos.contentDocument;
-  }else if(furioos.contentWindow.document !== undefined){
-    iframeDoc = furioos.contentWindow.document;
-  }
-  iframeDoc.getElementsByTagName("video").muted = true;
+  //var iframeDoc;
+  // if(furioos.contentDocument !== undefined)
+  // {
+  //   iframeDoc = furioos.contentDocument;
+  // }else if(furioos.contentWindow.document !== undefined){
+  //   iframeDoc = furioos.contentWindow.document;
+  // }
+  furioos.contentWindow.document.getElementsByTagName("video").muted = true;
   
-  
+
   player.start();
   console.info("Do something on load");
 });
