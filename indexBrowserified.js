@@ -311,9 +311,9 @@ module.exports = class Player {
     container.appendChild(iframe);
 
     iframe.onload = this._onLoad.bind(this);
-    iframe.contentDocument.getElementsByTagName("video").array.forEach(element => {
-      muteMe(element);
-    });;
+    iframe.contentDocument.getElementsByTagName("video").forEach(element => {
+            muteMe(element);
+    });
 
     return iframe;
   }
