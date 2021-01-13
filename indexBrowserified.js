@@ -311,10 +311,12 @@ module.exports = class Player {
     container.appendChild(iframe);
 
     iframe.onload = this._onLoad.bind(this);
-    iframe.contentDocument.getElementsByTagName("video").forEach(element => {
-            muteMe(element);
-    });
+    var inputs = iframe.contentDocument.getElementsByTagName("video");
 
+    inputs.forEach(element => {
+      muteMe(element);
+    });
+    
     return iframe;
   }
 
