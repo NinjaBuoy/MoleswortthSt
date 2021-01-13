@@ -66,11 +66,6 @@ const loader = document.getElementById("loader");
 //   });
 // });
 
-const body = document.body;
-body.addEventListener('click', e => {
-  console.log('clicked body');
-});
-
 player.onLoad(() => {
   player.start();
   console.info("Do something on load");
@@ -110,12 +105,12 @@ player.onAppStart(function() {
 player.onStreamStart(function() {
   console.log("SDK client FIRED: Stream start");
 
-  //activate user
-  player.setUserActive();
   //disable loader here
   loader.remove();
 
-  body.click();
+  //activate user
+  player.setUserActive();
+  document.getElementById('furioos_container').click();
 });
 
 // Bind user active
