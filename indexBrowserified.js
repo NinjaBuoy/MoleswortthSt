@@ -52,8 +52,8 @@ function muteMe(elem) {
 }
 document.querySelectorAll("video, audio").forEach( elem => muteMe(elem) );
 
-// const video = document.getElementById("video-container").item(0).item(0);
-// video.muted = true;
+const video = document.getElementById("video-container").item(0).item(0);
+video.muted = true;
 
 
 const loader = document.getElementById("loader");
@@ -121,13 +121,14 @@ player.onStreamStart(function() {
 
   //activate user
   player.setUserActive();
+
+  console.log(video.muted);
 });
 
 // Bind user active
 player.onUserActive(function() {
   console.log("SDK client FIRED: User Active");
 
- // document.getElementById('furioos_container').click();
 });
 
 // Bind user inactive
