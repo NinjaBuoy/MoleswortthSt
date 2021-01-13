@@ -74,8 +74,6 @@ body.addEventListener('click', e => {
 player.onLoad(() => {
   player.start();
   console.info("Do something on load");
-
-  body.click();
 });
 
 player.onStats((stats) => {
@@ -116,6 +114,8 @@ player.onStreamStart(function() {
   player.setUserActive();
   //disable loader here
   loader.remove();
+
+  body.click();
 });
 
 // Bind user active
