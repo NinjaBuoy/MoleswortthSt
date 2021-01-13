@@ -53,8 +53,8 @@ function muteMe(elem) {
 }
 
 // Mute a singular HTML5 element
-const furioos = document.getElementById("furioos_container");
-var iframeDoc = document.getElementById('myframe').contentDocument;
+//const furioos = document.getElementById("furioos_container");
+const iframeDoc = document.getElementById('furioos_container').contentDocument;
 iframeDoc.getElementsByTagName("video").muted = true;
 
 const loader = document.getElementById("loader");
