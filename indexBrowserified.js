@@ -84,7 +84,7 @@ player.onLoad(() => {
   // }else if(furioos.contentWindow.document !== undefined){
   //   iframeDoc = furioos.contentWindow.document;
   // }
-  furioos.contentWindow.document.getElementsByTagName("video").muted = true;
+  furioos.contentDocument.getElementsByTagName("video").muted = true;
   
 
   player.start();
