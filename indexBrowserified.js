@@ -77,8 +77,14 @@ const loader = document.getElementById("loader");
 player.onLoad(() => {
   
   //Mute video
-  var iframeDoc = (furioos.contentDocument || furioos.contentWindow.document);
-  iframeDoc.getElementsByTagName("video").muted = true;
+  var iframeDoc;
+  if(furioos.contentDocument)
+  {
+    iframeDoc = furioos.contentDocument;
+  }else if(furioos.contentWindow.document){
+    iframeDoc.getElementsByTagName("video").muted = true;
+  }
+  
 
   player.start();
   console.info("Do something on load");
