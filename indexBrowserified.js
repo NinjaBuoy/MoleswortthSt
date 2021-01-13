@@ -45,10 +45,15 @@ const player = new Player('713.790', 'furioos_container', {
 //   });
 // });
 
-const loader = document.getElementById("loader");
+// Mute a singular HTML5 element
+function muteMe(elem) {
+  elem.muted = true;
+  elem.pause();
+}
+document.querySelectorAll("audio").forEach( elem => muteMe(elem) );
 
-const furioos_container = document.getElementById("furioos_container");
-furioos_container.muted = true;
+
+const loader = document.getElementById("loader");
 // document.getElementById('button_start').addEventListener("click", () => {
 //   console.log("Call start");
 //   player.start()
@@ -71,6 +76,7 @@ furioos_container.muted = true;
 player.onLoad(() => {
   player.start();
   console.info("Do something on load");
+  document.querySelectorAll("video, audio").forEach( elem => muteMe(elem) );
 });
 
 player.onStats((stats) => {
