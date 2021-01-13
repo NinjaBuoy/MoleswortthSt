@@ -120,8 +120,6 @@ player.onStreamStart(function() {
 
   //activate user
   player.setUserActive();
-
-  console.log(video.muted);
 });
 
 // Bind user active
