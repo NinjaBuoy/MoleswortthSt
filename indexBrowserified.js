@@ -47,6 +47,8 @@ const player = new Player('130.390', 'furioos_container', {
 
 const loader = document.getElementById("loader");
 
+const furioos_container = document.getElementById("furioos_container");
+furioos_container.muted = true;
 // document.getElementById('button_start').addEventListener("click", () => {
 //   console.log("Call start");
 //   player.start()
@@ -110,13 +112,13 @@ player.onStreamStart(function() {
 
   //activate user
   player.setUserActive();
-  document.getElementById('furioos_container').click();
 });
 
 // Bind user active
 player.onUserActive(function() {
   console.log("SDK client FIRED: User Active");
-  document.getElementById('furioos_container').click();
+
+ // document.getElementById('furioos_container').click();
 });
 
 // Bind user inactive
