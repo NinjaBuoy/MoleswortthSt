@@ -52,6 +52,10 @@ function muteMe(elem) {
   elem.setAttribute('allow', 'autoplay');
 }
 
+function iframeRef(furios){
+  return furios.contentWindow ? furios.contentWindow.document : furios.contentDocument;
+}
+
 const loader = document.getElementById("loader");
 // document.getElementById('button_start').addEventListener("click", () => {
 //   console.log("Call start");
@@ -72,19 +76,8 @@ const loader = document.getElementById("loader");
 //   });
 // });
 
+const furioos = document.getElementById("furioos_container");
 player.onLoad(() => {
-  
-  //Mute video
-  //var iframeDoc;
-  // if(furioos.contentDocument !== undefined)
-  // {
-  //   iframeDoc = furioos.contentDocument;
-  // }else if(furioos.contentWindow.document !== undefined){
-  //   iframeDoc = furioos.contentWindow.document;
-  // }
-  //furioos.contentDocument.getElementsByTagName("video").muted = true;
-  
-
   player.start();
   console.info("Do something on load");
 });
@@ -106,6 +99,9 @@ player.onAppInstallProgress(function(value) {
 // Bind application install success
 player.onAppInstallSuccess(function() {
   console.log("SDK client FIRED: App install success");
+
+  var iInside = iframeRef(furioos).getElementsByTagName("video");
+  iInside.muted = true;
 });
 
 // Bind application install fail
@@ -133,7 +129,6 @@ player.onStreamStart(function() {
 // Bind user active
 player.onUserActive(function() {
   console.log("SDK client FIRED: User Active");
-
 });
 
 // Bind user inactive
@@ -311,12 +306,6 @@ module.exports = class Player {
     container.appendChild(iframe);
 
     iframe.onload = this._onLoad.bind(this);
-    var inputs = iframe.contentDocument.getElementsByTagName("video");
-
-    console.log(inputs);
-    // inputs.array.forEach(element => {
-    //   muteMe(element);
-    // });
 
     return iframe;
   }
