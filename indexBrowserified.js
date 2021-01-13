@@ -52,8 +52,6 @@ function muteMe(elem) {
   elem.setAttribute('allow', 'autoplay');
 }
 
-// Mute a singular HTML5 element
-const furioos = document.getElementById("furioos_container");
 const loader = document.getElementById("loader");
 // document.getElementById('button_start').addEventListener("click", () => {
 //   console.log("Call start");
@@ -84,7 +82,7 @@ player.onLoad(() => {
   // }else if(furioos.contentWindow.document !== undefined){
   //   iframeDoc = furioos.contentWindow.document;
   // }
-  furioos.contentDocument.getElementsByTagName("video").muted = true;
+  //furioos.contentDocument.getElementsByTagName("video").muted = true;
   
 
   player.start();
@@ -305,7 +303,7 @@ module.exports = class Player {
     const iframe = document.createElement("iframe");
     iframe.setAttribute("src", this.sharedLink);
     iframe.setAttribute("id", "furioos-sdk-iframe");
-    iframe.setAttribute("allow", "autoplay; fullscreen; gamepad");
+    iframe.setAttribute("allow", "autoplay; fullscreen");
     
     iframe.style.width = "100%";
     iframe.style.height = "100%";
@@ -313,6 +311,9 @@ module.exports = class Player {
     container.appendChild(iframe);
 
     iframe.onload = this._onLoad.bind(this);
+    iframe.contentDocument.getElementsByTagName("video").array.forEach(element => {
+      muteMe(element);
+    });;
 
     return iframe;
   }
