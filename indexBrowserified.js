@@ -45,14 +45,17 @@ const player = new Player('713.790', 'furioos_container', {
 //   });
 // });
 
-// Mute a singular HTML5 element
-const furioos = document.getElementById("furioos_container");
+
 function muteMe(elem) {
   elem.muted = true;
   //elem.pause();
   elem.setAttribute('allow', 'autoplay');
 }
 
+// Mute a singular HTML5 element
+const furioos = document.getElementById("furioos_container");
+var iframeDoc = document.getElementById('myframe').contentDocument;
+iframeDoc.getElementsByTagName("video").muted = true;
 
 const loader = document.getElementById("loader");
 // document.getElementById('button_start').addEventListener("click", () => {
@@ -78,7 +81,7 @@ player.onLoad(() => {
   player.start();
   console.info("Do something on load");
 
-  player.querySelectorAll("video, audio").forEach( elem => muteMe(elem) );
+  //player.querySelectorAll("video, audio").forEach( elem => muteMe(elem) );
 });
 
 player.onStats((stats) => {
