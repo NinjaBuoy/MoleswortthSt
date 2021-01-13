@@ -66,9 +66,16 @@ const loader = document.getElementById("loader");
 //   });
 // });
 
+const body = document.body;
+body.addEventListener('click', e => {
+  console.log('clicked body');
+});
+
 player.onLoad(() => {
   player.start();
   console.info("Do something on load");
+
+  body.click();
 });
 
 player.onStats((stats) => {
