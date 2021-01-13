@@ -75,11 +75,13 @@ const loader = document.getElementById("loader");
 // });
 
 player.onLoad(() => {
-  player.start();
-  console.info("Do something on load");
-
+  
+  //Mute video
   var iframeDoc = (furioos.contentDocument || furioos.contentWindow.document);
   iframeDoc.getElementsByTagName("video").muted = true;
+
+  player.start();
+  console.info("Do something on load");
 });
 
 player.onStats((stats) => {
