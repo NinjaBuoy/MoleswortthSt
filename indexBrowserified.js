@@ -78,14 +78,15 @@ player.onLoad(() => {
   
   //Mute video
   var iframeDoc;
-  if(furioos.contentDocument)
+  if(furioos.contentDocument !== undefined)
   {
     iframeDoc = furioos.contentDocument;
-  }else if(furioos.contentWindow.document){
-    iframeDoc.getElementsByTagName("video").muted = true;
+  }else if(furioos.contentWindow.document !== undefined){
+    iframeDoc = furioos.contentWindow.document;
   }
+  iframeDoc.getElementsByTagName("video").muted = true;
   
-
+  
   player.start();
   console.info("Do something on load");
 });
